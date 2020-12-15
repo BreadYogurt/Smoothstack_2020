@@ -7,7 +7,7 @@ package com.smoothstack.assignments.day1;
  * @author Brent Yurek
  *
  */
-public class patterns {
+public class Patterns {
 	public static void main(String[] args) {
 		int number = 1;
 		int rows = 4;
