@@ -25,10 +25,11 @@ public class ListDir {
 		if (args.length > 0) {
 			dir = Paths.get(args[0]);
 		} else {
-			Scanner input = new Scanner(System.in);
-			System.out.print("Directory to list contents of: ");
-			String p = input.next();
-			dir = Paths.get(p);
+			try (Scanner input = new Scanner(System.in)){
+				System.out.print("Directory to list contents of: ");
+				String p = input.next();
+				dir = Paths.get(p);
+			}
 		}
 		
 		try (DirectoryStream<Path> contents = Files.newDirectoryStream(dir)){
