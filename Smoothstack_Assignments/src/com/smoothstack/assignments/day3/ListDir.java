@@ -27,7 +27,7 @@ public class ListDir {
 		} else {
 			try (Scanner input = new Scanner(System.in)){
 				System.out.print("Directory to list contents of: ");
-				String p = input.next();
+				String p = input.nextLine();
 				dir = Paths.get(p);
 			}
 		}
