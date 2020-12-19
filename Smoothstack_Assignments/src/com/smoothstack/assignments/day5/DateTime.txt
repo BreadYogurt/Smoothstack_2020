@@ -1,0 +1,4 @@
+1) Instant
+2) Turn that date into a LocalDate object, and keep subtracting a day until its getDayOfWeek method equals DayOfWeek.THURSDAY
+3) ZoneId represents the location of a timezone, ZoneOffset represents the time relative to UTC.
+4) Instant.atZone(zone) and ZonedDateTime.toInstant(), respectively.
