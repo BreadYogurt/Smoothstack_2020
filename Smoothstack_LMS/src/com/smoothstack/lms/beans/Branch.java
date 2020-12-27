@@ -22,6 +22,15 @@ public class Branch {
 	private String name, address;
 	
 	@Override
+	public String toString() {
+		if (name != null) {
+			return name;
+		} else {
+			return "Unnamed Branch";
+		}
+	}
+	
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
