@@ -7,6 +7,10 @@ package com.smoothstack.lms.beans;
  * @author Brent Yurek
  *
  */
+/**
+ * @author destr
+ *
+ */
 public class Publisher {
 	private int id;
 	private String name, address, phone;
@@ -52,27 +56,51 @@ public class Publisher {
 		return true;
 	}
 	
+	/**
+	 * @return the id
+	 */
 	public int getId() {
 		return id;
 	}
+	/**
+	 * @param id the id to set
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
+	/**
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
+	/**
+	 * @param name the name to set
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+	/**
+	 * @return the address
+	 */
 	public String getAddress() {
 		return address;
 	}
+	/**
+	 * @param address the address to set
+	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	/**
+	 * @return the phone
+	 */
 	public String getPhone() {
 		return phone;
 	}
+	/**
+	 * @param phone the phone to set
+	 */
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
