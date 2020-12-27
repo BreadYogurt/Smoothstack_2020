@@ -22,11 +22,7 @@ public class Author {
 
 	@Override
 	public String toString() {
-		if (name != null) {
-			return name;
-		} else {
-			return "Unknown Author";
-		}
+		return name;
 	}
 	
 	@Override

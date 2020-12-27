@@ -23,11 +23,7 @@ public class Branch {
 	
 	@Override
 	public String toString() {
-		if (name != null) {
-			return name;
-		} else {
-			return "Unnamed Branch";
-		}
+		return name;
 	}
 	
 	@Override
