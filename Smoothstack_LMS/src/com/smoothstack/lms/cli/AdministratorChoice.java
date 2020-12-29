@@ -30,6 +30,7 @@ public class AdministratorChoice extends Choice {
 		choices.add(new PublisherAdminChoice(new PublisherDAO()));
 		choices.add(new BranchAdminChoice(new BranchDAO()));
 		choices.add(new BorrowerAdminChoice(new BorrowerDAO()));
+		choices.add(new DueDateAdminChoice());
 		
 		boolean quit = false;
 		while (!quit) {

@@ -4,6 +4,9 @@
 package com.smoothstack.lms.cli.adminchoices;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.smoothstack.lms.beans.Borrower;
 import com.smoothstack.lms.beans.Branch;
@@ -37,8 +40,20 @@ public class DueDateAdminChoice extends Choice {
 			Loan loan = Utils.createMenu(loanDao.getByBorrowerAndBranch(borrower, branch), "Quit to cancel operation");
 			
 			Utils.printQuitNote();
-			System.out.println("The current due date for this book is " + loan.getDueDate());
-			
+			SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+			System.out.println("The current due date for this book is " + df.format(loan.getDueDate()));
+			Date newDueDate = null;
+			while (newDueDate == null) {
+				String dateInput = Utils.stringPrompt("Please enter a new due date (MM-DD-YYYY)", true);
+				try {
+					newDueDate = df.parse(dateInput);
+				} catch (ParseException e) {
+					newDueDate = null;
+					System.out.println("Please enter a date in the valid format (MM-DD-YYYY).");
+				}
+			}
+			loan.setDueDate(newDueDate);
+			loanDao.update(loan);
 		} catch (QuitException e) {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
