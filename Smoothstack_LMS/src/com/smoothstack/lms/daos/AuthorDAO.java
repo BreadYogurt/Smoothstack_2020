@@ -45,7 +45,8 @@ public class AuthorDAO extends BaseDAO<Author> {
 
 	@Override
 	public List<Author> getAll() throws ClassNotFoundException, SQLException {
-		return read("select * from tbl_author", null);
+		return read("select * from tbl_author",
+				new Object[] {});
 	}
 
 }

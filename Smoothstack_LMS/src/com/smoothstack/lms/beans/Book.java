@@ -7,7 +7,7 @@ package com.smoothstack.lms.beans;
  * @author Brent Yurek
  *
  */
-public class Book {
+public class Book extends Bean {
 	private int id;
 	private String title;
 	private Author author;
@@ -96,6 +96,18 @@ public class Book {
 	 */
 	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
+	}
+	
+	@Override
+	public void printDetails() {
+		System.out.println("Book ID: " + id);
+		System.out.println("Book Title: " + title);
+		if (author != null) {
+			author.printDetails();
+		}
+		if (publisher != null) {
+			publisher.printDetails();
+		}
 	}
 	
 	

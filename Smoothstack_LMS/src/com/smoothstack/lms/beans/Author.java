@@ -7,7 +7,7 @@ package com.smoothstack.lms.beans;
  * @author Brent Yurek
  *
  */
-public class Author {
+public class Author extends Bean {
 	private int id;
 	private String name;
 	
@@ -71,4 +71,8 @@ public class Author {
 		this.name = name;
 	}
 	
+	public void printDetails() {
+		System.out.println("Author ID: " + id);
+		System.out.println("Author Name: " + name);
+	}
 }

@@ -36,7 +36,8 @@ public class BranchDAO extends BaseDAO<Branch> {
 	
 	@Override
 	public List<Branch> getAll() throws ClassNotFoundException, SQLException {
-		return read("select * from tbl_library_branch", null);
+		return read("select * from tbl_library_branch",
+				new Object[] {});
 	}
 
 	@Override

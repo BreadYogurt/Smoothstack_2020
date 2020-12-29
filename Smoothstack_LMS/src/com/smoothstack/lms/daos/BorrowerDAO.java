@@ -45,7 +45,8 @@ public class BorrowerDAO extends BaseDAO<Borrower> {
 
 	@Override
 	public List<Borrower> getAll() throws ClassNotFoundException, SQLException {
-		return read("select * from tbl_borrower", null);
+		return read("select * from tbl_borrower",
+				new Object[] {});
 	}
 
 }

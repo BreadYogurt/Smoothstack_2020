@@ -66,7 +66,8 @@ public class CopiesDAO extends BaseDAO<Copies> {
 				+ "left join tbl_book using (bookId) "
 				+ "left join tbl_library_branch using (branchId) "
 				+ "left join tbl_author on tbl_book.authId = tbl_author.authorId "
-				+ "left join tbl_publisher on tbl_book.pubId = tbl_publisher.publisherId", null);
+				+ "left join tbl_publisher on tbl_book.pubId = tbl_publisher.publisherId",
+				new Object[] {});
 	}
 
 }

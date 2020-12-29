@@ -9,7 +9,7 @@ import java.util.Date;
  * @author Brent Yurek
  *
  */
-public class Loan {
+public class Loan extends Bean{
 	private Book book;
 	private Branch branch;
 	private Borrower borrower;
@@ -132,5 +132,18 @@ public class Loan {
 	 */
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
+	}
+	
+	@Override
+	public void printDetails() {
+		book.printDetails();
+		branch.printDetails();
+		borrower.printDetails();
+		if (dateOut != null) {
+			System.out.println("Date Checked Out: " + dateOut);
+		}
+		if (dueDate != null) {
+			System.out.println("Date Due: " + dueDate);
+		}
 	}
 }

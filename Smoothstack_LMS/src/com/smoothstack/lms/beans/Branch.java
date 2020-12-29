@@ -7,7 +7,7 @@ package com.smoothstack.lms.beans;
  * @author Brent Yurek
  *
  */
-public class Branch {
+public class Branch extends Bean{
 	public Branch(int id, String name, String address) {
 		super();
 		this.id = id;
@@ -23,7 +23,13 @@ public class Branch {
 	
 	@Override
 	public String toString() {
-		return name;
+		if (name != null) {
+			return name + ((address != null) ? ", " + address : "");
+		} else if (address != null) {
+			return address;
+		} else {
+			return "Branch No. " + id;
+		}
 	}
 	
 	@Override
@@ -82,6 +88,17 @@ public class Branch {
 	 */
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	
+	@Override
+	public void printDetails() {
+		System.out.println("Branch ID: " + id);
+		if (name != null) {
+			System.out.println("Branch Name: " + name);
+		}
+		if (address != null) {
+			System.out.println("Branch Address: " + address);
+		}
 	}
 	
 }

@@ -7,7 +7,7 @@ package com.smoothstack.lms.beans;
  * @author Brent Yurek
  *
  */
-public class Copies {
+public class Copies extends Bean{
 	private Book book;
 	private Branch branch;
 	private int noOfCopies = 0;
@@ -95,6 +95,13 @@ public class Copies {
 	 */
 	public void setNoOfCopies(int noOfCopies) {
 		this.noOfCopies = noOfCopies;
+	}
+	
+	@Override
+	public void printDetails() {
+		book.printDetails();
+		branch.printDetails();
+		System.out.println("Number of copies: " + noOfCopies);
 	}
 	
 }

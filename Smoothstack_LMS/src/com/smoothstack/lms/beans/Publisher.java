@@ -7,11 +7,7 @@ package com.smoothstack.lms.beans;
  * @author Brent Yurek
  *
  */
-/**
- * @author destr
- *
- */
-public class Publisher {
+public class Publisher extends Bean{
 	private int id;
 	private String name, address, phone;
 	
@@ -103,5 +99,16 @@ public class Publisher {
 	 */
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	@Override
+	public void printDetails() {
+		System.out.println("Publisher ID: " + id);
+		System.out.println("Publisher Name: " + name);
+		if (address != null) {
+			System.out.println("Publisher Address: " + address);
+		}
+		if (address != null) {
+			System.out.println("Publisher Phone Number: " + phone);
+		}
 	}
 }

@@ -63,14 +63,21 @@ public class LoanDAO extends BaseDAO<Loan> {
 				new Object[] { loan.getBook().getId(), loan.getBranch().getId(), loan.getBorrower().getCardNo() });
 	}
 
+	static final String selectQuery = "select * from tbl_book_loans "
+			+ "left join tbl_book using (bookId) "
+			+ "left join tbl_library_branch using (branchId) "
+			+ "left join tbl_borrower using (cardNo) "
+			+ "left join tbl_author on tbl_book.authId = tbl_author.authorId "
+			+ "left join tbl_publisher on tbl_book.pubId = tbl_publisher.publisherId";
+	
 	@Override
 	public List<Loan> getAll() throws ClassNotFoundException, SQLException {
-		return read("select * from tbl_book_loans "
-				+ "left join tbl_book using (bookId) "
-				+ "left join tbl_library_branch using (branchId) "
-				+ "left join tbl_borrower using (cardNo) "
-				+ "left join tbl_author on tbl_book.authId = tbl_author.authorId "
-				+ "left join tbl_publisher on tbl_book.pubId = tbl_publisher.publisherId", null);
+		return read(selectQuery, new Object[] {});
+	}
+	
+	public List<Loan> getByBorrowerAndBranch(Borrower borrower, Branch branch) throws ClassNotFoundException, SQLException {
+		return read(selectQuery + " where cardNo = ? and branchId = ?",
+				new Object[] { borrower.getCardNo(), branch.getId() });
 	}
 
 }

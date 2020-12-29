@@ -31,6 +31,7 @@ public class BookDAO extends BaseDAO<Book> {
 			if (!rs.wasNull()) {
 				book.setPublisher(new Publisher(publisherId, rs.getString("publisherName"), rs.getString("publisherAddress"), rs.getString("publisherPhone")));
 			}
+			books.add(book);
 		}
 		return books;
 	}
@@ -65,7 +66,8 @@ public class BookDAO extends BaseDAO<Book> {
 	public List<Book> getAll() throws ClassNotFoundException, SQLException {
 		return read("select * from tbl_book "
 				+ "left join tbl_author on tbl_book.authId = tbl_author.authorId "
-				+ "left join tbl_publisher on tbl_book.pubId = tbl_publisher.publisherId", null);
+				+ "left join tbl_publisher on tbl_book.pubId = tbl_publisher.publisherId",
+				new Object[] {});
 	}
 
 }

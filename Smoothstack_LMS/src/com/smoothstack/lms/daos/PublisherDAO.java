@@ -49,7 +49,8 @@ public class PublisherDAO extends BaseDAO<Publisher> {
 
 	@Override
 	public List<Publisher> getAll() throws ClassNotFoundException, SQLException {
-		return read("select * from tbl_publisher", null);
+		return read("select * from tbl_publisher",
+				new Object[] {});
 	}
 
 }

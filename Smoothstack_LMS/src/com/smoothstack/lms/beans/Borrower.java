@@ -7,7 +7,7 @@ package com.smoothstack.lms.beans;
  * @author Brent Yurek
  *
  */
-public class Borrower {
+public class Borrower extends Bean{
 	private int cardNo;
 	private String name, address, phone;
 	
@@ -29,6 +29,14 @@ public class Borrower {
 	 */
 	public Borrower() {
 		super();
+	}
+	
+	public String toString() {
+		if (name != null) {
+			return name + " (" + cardNo + ")";
+		} else {
+			return Integer.toString(cardNo);
+		}
 	}
 	
 	@Override
@@ -99,5 +107,19 @@ public class Borrower {
 	 */
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	@Override
+	public void printDetails() {
+		System.out.println("Borrower Card Number: " + cardNo);
+		if (name != null) {
+			System.out.println("Borrower Name: " + name);
+		}
+		if (address != null) {
+			System.out.println("Borrower Address: " + address);
+		}
+		if (phone != null) {
+			System.out.println("Borrower Phone Number: " + phone);
+		}
 	}
 }
