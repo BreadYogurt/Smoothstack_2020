@@ -136,6 +136,7 @@ class EnterBranchChoice extends Choice {
 				while (noToAdd < 0) {
 					System.out.println("Existing number of copies: " + copies.getNoOfCopies());
 					System.out.println("Enter new number of copies:");
+					@SuppressWarnings("resource")
 					Scanner input = new Scanner(System.in);
 					noToAdd = input.nextInt();
 					if (noToAdd < 0) {
