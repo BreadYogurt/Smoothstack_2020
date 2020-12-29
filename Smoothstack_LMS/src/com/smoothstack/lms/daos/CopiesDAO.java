@@ -60,14 +60,25 @@ public class CopiesDAO extends BaseDAO<Copies> {
 				new Object[] { copies.getBook().getId(), copies.getBranch().getId() });
 	}
 
+	private static final String selectQuery = "select * from tbl_book_copies "
+			+ "left join tbl_book using (bookId) "
+			+ "left join tbl_library_branch using (branchId) "
+			+ "left join tbl_author on tbl_book.authId = tbl_author.authorId "
+			+ "left join tbl_publisher on tbl_book.pubId = tbl_publisher.publisherId";
+	
 	@Override
 	public List<Copies> getAll() throws ClassNotFoundException, SQLException {
-		return read("select * from tbl_book_copies "
-				+ "left join tbl_book using (bookId) "
-				+ "left join tbl_library_branch using (branchId) "
-				+ "left join tbl_author on tbl_book.authId = tbl_author.authorId "
-				+ "left join tbl_publisher on tbl_book.pubId = tbl_publisher.publisherId",
-				new Object[] {});
+		return read(selectQuery, new Object[] {});
+	}
+	
+	public Copies getByBookAndBranch(Book book, Branch branch) throws ClassNotFoundException, SQLException {
+		List<Copies> results = read(selectQuery + " where bookId = ? and branchId = ?",
+				new Object[] { book.getId(), branch.getId() });
+		if (results.size() > 0) {
+			return results.get(0);
+		} else {
+			return null;
+		}
 	}
 
 }

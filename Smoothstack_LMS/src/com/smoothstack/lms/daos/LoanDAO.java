@@ -63,7 +63,7 @@ public class LoanDAO extends BaseDAO<Loan> {
 				new Object[] { loan.getBook().getId(), loan.getBranch().getId(), loan.getBorrower().getCardNo() });
 	}
 
-	static final String selectQuery = "select * from tbl_book_loans "
+	private static final String selectQuery = "select * from tbl_book_loans "
 			+ "left join tbl_book using (bookId) "
 			+ "left join tbl_library_branch using (branchId) "
 			+ "left join tbl_borrower using (cardNo) "
