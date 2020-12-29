@@ -17,10 +17,10 @@ import com.smoothstack.lms.daos.BaseDAO;
  * @author Brent Yurek
  *
  */
-public abstract class AdminChoice<T extends Bean> extends Choice {
+public abstract class CRUDChoice<T extends Bean> extends Choice {
 	BaseDAO<T> dao;
 	
-	public AdminChoice(BaseDAO<T> dao) {
+	public CRUDChoice(BaseDAO<T> dao) {
 		this.dao = dao;
 	}
 	

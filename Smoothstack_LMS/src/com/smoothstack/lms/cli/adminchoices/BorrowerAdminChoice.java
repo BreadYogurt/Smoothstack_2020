@@ -12,7 +12,7 @@ import com.smoothstack.lms.daos.BaseDAO;
  * @author Brent Yurek
  *
  */
-public class BorrowerAdminChoice extends AdminChoice<Borrower> {
+public class BorrowerAdminChoice extends CRUDChoice<Borrower> {
 
 	public BorrowerAdminChoice(BaseDAO<Borrower> dao) {
 		super(dao);

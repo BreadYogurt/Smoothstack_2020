@@ -16,7 +16,7 @@ import com.smoothstack.lms.daos.PublisherDAO;
  * @author Brent Yurek
  *
  */
-public class BookAdminChoice extends AdminChoice<Book> {
+public class BookAdminChoice extends CRUDChoice<Book> {
 
 	public BookAdminChoice(BaseDAO<Book> dao) {
 		super(dao);

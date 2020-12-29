@@ -12,7 +12,7 @@ import com.smoothstack.lms.daos.BaseDAO;
  * @author Brent Yurek
  *
  */
-public class PublisherAdminChoice extends AdminChoice<Publisher> {
+public class PublisherAdminChoice extends CRUDChoice<Publisher> {
 
 	public PublisherAdminChoice(BaseDAO<Publisher> dao) {
 		super(dao);
